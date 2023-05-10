@@ -1,0 +1,6 @@
+pyrogram
+tgcrypto
+sqlitedict
+curses-menu
+rich
+pyinstaller
