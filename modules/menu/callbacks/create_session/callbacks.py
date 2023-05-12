@@ -21,6 +21,7 @@ async def create_session_callback():
             username=client.me.username
         ).json()
         print(f'[green]Created[/] session {session_name}...')
+        await client.stop()
         input()
 
     except OperationalError:

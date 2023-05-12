@@ -1,7 +1,8 @@
 from ...menu import menu
 from cursesmenu import CursesMenu
 from modules.custom_items.DynamicSubmenu import DynamicSubmenuItem
-from .generator import generate_get_code_menu
+from ..common_generators.valid_sessions_generator import generate_sessions_list
+from ...callbacks.get_code import get_code_callback
 
 
 get_code_submenu = CursesMenu(
@@ -10,6 +11,7 @@ get_code_submenu = CursesMenu(
 
 get_code_submenu_item = DynamicSubmenuItem(
     text='Get confirmation code',
-    generator=generate_get_code_menu,
+    generator=generate_sessions_list,
+    args=['Get code for', get_code_callback],
     menu=menu
 )
