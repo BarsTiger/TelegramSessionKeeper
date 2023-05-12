@@ -16,7 +16,7 @@ async def create_session_callback():
         await (client := GeneratedClient(name=session_name)).start()
         sessions[session_name] = SessionConfig(
             id=client.me.id,
-            phone=client.phone_number,
+            phone=client.me.phone_number,
             profile_name=client.me.first_name + (f' {client.me.last_name}' if client.me.last_name else ''),
             username=client.me.username
         ).json()
@@ -27,8 +27,3 @@ async def create_session_callback():
     except OperationalError:
         print('[red]Cannot create session file.[/] Try using different name...')
         input()
-
-    except Exception as e:
-        print(f'[red]Error:[/] {e}...')
-        input()
-        return
